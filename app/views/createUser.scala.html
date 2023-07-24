@@ -1,0 +1,54 @@
+@* Login Template File *@
+@(loginForm: Form[LoginData2])(implicit request: MessagesRequestHeader, flash: Flash)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/assets/stylesheets/index.css">
+</head>
+<body>
+<div class="container">
+    @helper.form(action = routes.authentication.createUserForm) {
+    @helper.CSRF.formField
+    <div class="login-form2">
+        <div class="image-container">
+            <img src="/assets/images/luna.png">
+        </div>
+        <h3>MARTIAN</h3>
+        <div class="form-group">
+            @helper.inputText(loginForm("Username"), Symbol("maxlength") -> None, Symbol("minlength") -> None, Symbol("class") -> "hidden-input")
+        </div>
+        <div class="form-group">
+            @helper.inputText(loginForm("Email"), Symbol("maxlength") -> None, Symbol("minlength") -> None, Symbol("class") -> "hidden-input", Symbol("required") -> "required", Symbol("pattern") -> "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
+        </div>
+        <div class="form-group">
+            @helper.inputPassword(loginForm("Password"), Symbol("maxlength") -> None, Symbol("minlength") -> None, Symbol("class") -> "hidden-input")
+        </div>
+        <div class="form-actions">
+            <button type="submit">Create Account</button>
+        </div>
+
+        <hr class="division-line2">
+        <p class = "already">OR</p>
+        <p>
+            <button type="button" onclick="window.location.href='@routes.authentication.login'" class="login-account-btn">Login</button>
+        </p>
+
+
+    </div>
+    }
+    @flash.get("error").map { error =>
+    <div class="flash-error">
+        @error
+    </div>
+    }
+    @flash.get("Done").map { message =>
+    <div class="flash-success">
+        @message
+    </div>
+    }
+</div>
+</body>
+</html>

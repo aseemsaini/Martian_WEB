@@ -1,0 +1,9 @@
+@()(implicit request: RequestHeader, assetsFinder: AssetsFinder)
+
+<html>
+    <input type ="hidden" id = "ws-route" value = "@routes.authentication.socket.absoluteURL()">
+    <input type ="text" id = "test-input" size = "80">
+    <br>
+    <textarea id = "test-area" size = "80" rows="15"></textarea>
+    <script src="@routes.Assets.versioned("javascripts/test.js")"></script>
+</html>

@@ -1,0 +1,28 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+
+#TaskList Route
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+#Login Route
+
+GET     /login                      controllers.authentication.login
+GET     /create                     controllers.authentication.createUser
+POST    /validate                   controllers.authentication.loginValidate
+
+
+POST   /createUserForm2             controllers.authentication.createUserForm
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(file)
+
+#Home Page
+GET     /home                       controllers.authentication.home
+GET     /logout                    controllers.authentication.logout
+
+GET     /test                       controllers.authentication.test
+GET     /socket                     controllers.authentication.socket

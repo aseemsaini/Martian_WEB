@@ -1,0 +1,55 @@
+@* Login Template File *@
+@()(implicit request: MessagesRequestHeader, flash: Flash)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/assets/stylesheets/index.css">
+</head>
+<body>
+
+@flash.get("error").map { error =>
+<div class="flash-error">
+    @error
+</div>
+}
+@flash.get("Done").map { message =>
+<div class="flash-success">
+    @message
+</div>
+}
+
+
+<div class="container">
+    <form method="post" action="@routes.authentication.loginValidate" class="login-form">
+        @helper.CSRF.formField
+
+        <div class="image-container">
+            <img src="/assets/images/luna.png" alt="Luna Logo">
+        </div>
+        <h3>MARTIAN</h3>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="Username" class="hidden-input" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="Password" class="hidden-input" placeholder="Enter your password" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit">Login</button>
+        </div>
+        <hr class="division-line">
+        <p>
+            <button type="button" onclick="window.location.href='@routes.authentication.createUser'" class="create-account-btn">Create New Account</button>
+        </p>
+
+    </form>
+
+
+</div>
+</body>
+</html>
