@@ -9,14 +9,14 @@ import _root_.controllers.Assets.Asset
 // @LINE:6
 package controllers {
 
-  // @LINE:21
+  // @LINE:22
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:21
+    // @LINE:22
     def versioned(file:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -43,19 +43,19 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "createUserForm2")
     }
   
-    // @LINE:26
+    // @LINE:19
     def logout: Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "logout")
     }
   
-    // @LINE:29
+    // @LINE:17
     def socket: Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "socket")
     }
   
-    // @LINE:28
+    // @LINE:16
     def test: Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "test")
@@ -75,23 +75,23 @@ package controllers {
   
   }
 
-  // @LINE:24
+  // @LINE:25
   class Reversefinance(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:24
+    // @LINE:25
     def home: Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "home")
     }
   
-    // @LINE:25
+    // @LINE:26
     def searchTicker: Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "search")
+      Call("POST", _prefix + { _defaultPrefix } + "search")
     }
   
   }

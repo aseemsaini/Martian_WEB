@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/app/controllers/authentication.scala:80:54: value home is not a member of controllers.Reversefinance[0m
-[0m[[0m[31merror[0m] [0m[0m        val redirectResult = Redirect(routes.finance.home).withSession(sessionData.toSeq: _*)[0m
-[0m[[0m[31merror[0m] [0m[0m                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/app/controllers/finance1.scala:24:7: finance is already defined as class finance[0m
+[0m[[0m[31merror[0m] [0m[0mclass finance @Inject()(protected val dbConfigProvider: DatabaseConfigProvider, cc: MessagesControllerComponents[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

@@ -1,0 +1,13 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/test/FinanceSpec.scala:21:24: not enough arguments for constructor finance1: (dbConfigProvider: play.api.db.slick.DatabaseConfigProvider, cc: play.api.mvc.MessagesControllerComponents, polygonApiClient: controllers.PolygonApiClient)(implicit assetsFinder: controllers.AssetsFinder, ec: scala.concurrent.ExecutionContext, system: akka.actor.ActorSystem, mat: akka.stream.Materializer): controllers.finance1.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter polygonApiClient.[0m
+[0m[[0m[31merror[0m] [0m[0m      val controller = new finance1(stubControllerComponents(), polygonApiClient)(app.injector.instanceOf[AssetsFinder], app.injector.instanceOf[ActorSystem], mat)[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/test/FinanceSpec.scala:31:24: not enough arguments for constructor finance1: (dbConfigProvider: play.api.db.slick.DatabaseConfigProvider, cc: play.api.mvc.MessagesControllerComponents, polygonApiClient: controllers.PolygonApiClient)(implicit assetsFinder: controllers.AssetsFinder, ec: scala.concurrent.ExecutionContext, system: akka.actor.ActorSystem, mat: akka.stream.Materializer): controllers.finance1.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter polygonApiClient.[0m
+[0m[[0m[31merror[0m] [0m[0m      val controller = new finance1(stubControllerComponents(), new PolygonApiClient(wsClient))(app.injector.instanceOf[AssetsFinder], app.injector.instanceOf[ActorSystem], mat)[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/test/FinanceSpec.scala:40:24: not enough arguments for constructor finance1: (dbConfigProvider: play.api.db.slick.DatabaseConfigProvider, cc: play.api.mvc.MessagesControllerComponents, polygonApiClient: controllers.PolygonApiClient)(implicit assetsFinder: controllers.AssetsFinder, ec: scala.concurrent.ExecutionContext, system: akka.actor.ActorSystem, mat: akka.stream.Materializer): controllers.finance1.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter polygonApiClient.[0m
+[0m[[0m[31merror[0m] [0m[0m      val controller = new finance1(stubControllerComponents(), new PolygonApiClient(wsClient))(app.injector.instanceOf[AssetsFinder], app.injector.instanceOf[ActorSystem], mat)[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0mthree errors found[0m

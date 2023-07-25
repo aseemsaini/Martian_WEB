@@ -18,9 +18,9 @@ class Routes(
   AsyncController_3: controllers.AsyncController,
   // @LINE:13
   authentication_0: controllers.authentication,
-  // @LINE:21
+  // @LINE:22
   Assets_1: controllers.Assets,
-  // @LINE:24
+  // @LINE:25
   finance_2: controllers.finance,
   val prefix: String
 ) extends GeneratedRouter {
@@ -33,9 +33,9 @@ class Routes(
     AsyncController_3: controllers.AsyncController,
     // @LINE:13
     authentication_0: controllers.authentication,
-    // @LINE:21
+    // @LINE:22
     Assets_1: controllers.Assets,
-    // @LINE:24
+    // @LINE:25
     finance_2: controllers.finance
   ) = this(errorHandler, HomeController_4, AsyncController_3, authentication_0, Assets_1, finance_2, "/")
 
@@ -55,13 +55,13 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.authentication.login"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """create""", """controllers.authentication.createUser"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """validate""", """controllers.authentication.loginValidate"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createUserForm2""", """controllers.authentication.createUserForm"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(file:String)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """home""", """controllers.finance.home"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """search""", """controllers.finance.searchTicker"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.authentication.logout"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """test""", """controllers.authentication.test"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """socket""", """controllers.authentication.socket"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createUserForm2""", """controllers.authentication.createUserForm"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.authentication.logout"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(file:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """home""", """controllers.finance.home"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """search""", """controllers.finance.searchTicker"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -160,101 +160,11 @@ class Routes(
     )
   )
 
-  // @LINE:18
-  private[this] lazy val controllers_authentication_createUserForm5_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createUserForm2")))
-  )
-  private[this] lazy val controllers_authentication_createUserForm5_invoker = createInvoker(
-    authentication_0.createUserForm,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.authentication",
-      "createUserForm",
-      Nil,
-      "POST",
-      this.prefix + """createUserForm2""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:21
-  private[this] lazy val controllers_Assets_versioned6_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
-  )
-  private[this] lazy val controllers_Assets_versioned6_invoker = createInvoker(
-    Assets_1.versioned(fakeValue[String]),
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.Assets",
-      "versioned",
-      Seq(classOf[String]),
-      "GET",
-      this.prefix + """assets/""" + "$" + """file<.+>""",
-      """ Map static resources from the /public folder to the /assets URL path""",
-      Seq()
-    )
-  )
-
-  // @LINE:24
-  private[this] lazy val controllers_finance_home7_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("home")))
-  )
-  private[this] lazy val controllers_finance_home7_invoker = createInvoker(
-    finance_2.home,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.finance",
-      "home",
-      Nil,
-      "GET",
-      this.prefix + """home""",
-      """Home Page""",
-      Seq()
-    )
-  )
-
-  // @LINE:25
-  private[this] lazy val controllers_finance_searchTicker8_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("search")))
-  )
-  private[this] lazy val controllers_finance_searchTicker8_invoker = createInvoker(
-    finance_2.searchTicker,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.finance",
-      "searchTicker",
-      Nil,
-      "GET",
-      this.prefix + """search""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:26
-  private[this] lazy val controllers_authentication_logout9_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("logout")))
-  )
-  private[this] lazy val controllers_authentication_logout9_invoker = createInvoker(
-    authentication_0.logout,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.authentication",
-      "logout",
-      Nil,
-      "GET",
-      this.prefix + """logout""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:28
-  private[this] lazy val controllers_authentication_test10_route = Route("GET",
+  // @LINE:16
+  private[this] lazy val controllers_authentication_test5_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("test")))
   )
-  private[this] lazy val controllers_authentication_test10_invoker = createInvoker(
+  private[this] lazy val controllers_authentication_test5_invoker = createInvoker(
     authentication_0.test,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -268,11 +178,11 @@ class Routes(
     )
   )
 
-  // @LINE:29
-  private[this] lazy val controllers_authentication_socket11_route = Route("GET",
+  // @LINE:17
+  private[this] lazy val controllers_authentication_socket6_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("socket")))
   )
-  private[this] lazy val controllers_authentication_socket11_invoker = createInvoker(
+  private[this] lazy val controllers_authentication_socket6_invoker = createInvoker(
     authentication_0.socket,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -281,6 +191,96 @@ class Routes(
       Nil,
       "GET",
       this.prefix + """socket""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:18
+  private[this] lazy val controllers_authentication_createUserForm7_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createUserForm2")))
+  )
+  private[this] lazy val controllers_authentication_createUserForm7_invoker = createInvoker(
+    authentication_0.createUserForm,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.authentication",
+      "createUserForm",
+      Nil,
+      "POST",
+      this.prefix + """createUserForm2""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:19
+  private[this] lazy val controllers_authentication_logout8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("logout")))
+  )
+  private[this] lazy val controllers_authentication_logout8_invoker = createInvoker(
+    authentication_0.logout,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.authentication",
+      "logout",
+      Nil,
+      "GET",
+      this.prefix + """logout""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:22
+  private[this] lazy val controllers_Assets_versioned9_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
+  )
+  private[this] lazy val controllers_Assets_versioned9_invoker = createInvoker(
+    Assets_1.versioned(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Assets",
+      "versioned",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """assets/""" + "$" + """file<.+>""",
+      """ Map static resources from the /public folder to the /assets URL path""",
+      Seq()
+    )
+  )
+
+  // @LINE:25
+  private[this] lazy val controllers_finance_home10_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("home")))
+  )
+  private[this] lazy val controllers_finance_home10_invoker = createInvoker(
+    finance_2.home,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.finance",
+      "home",
+      Nil,
+      "GET",
+      this.prefix + """home""",
+      """Home Page""",
+      Seq()
+    )
+  )
+
+  // @LINE:26
+  private[this] lazy val controllers_finance_searchTicker11_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("search")))
+  )
+  private[this] lazy val controllers_finance_searchTicker11_invoker = createInvoker(
+    finance_2.searchTicker,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.finance",
+      "searchTicker",
+      Nil,
+      "POST",
+      this.prefix + """search""",
       """""",
       Seq()
     )
@@ -319,46 +319,46 @@ class Routes(
         controllers_authentication_loginValidate4_invoker.call(authentication_0.loginValidate)
       }
   
+    // @LINE:16
+    case controllers_authentication_test5_route(params@_) =>
+      call { 
+        controllers_authentication_test5_invoker.call(authentication_0.test)
+      }
+  
+    // @LINE:17
+    case controllers_authentication_socket6_route(params@_) =>
+      call { 
+        controllers_authentication_socket6_invoker.call(authentication_0.socket)
+      }
+  
     // @LINE:18
-    case controllers_authentication_createUserForm5_route(params@_) =>
+    case controllers_authentication_createUserForm7_route(params@_) =>
       call { 
-        controllers_authentication_createUserForm5_invoker.call(authentication_0.createUserForm)
+        controllers_authentication_createUserForm7_invoker.call(authentication_0.createUserForm)
       }
   
-    // @LINE:21
-    case controllers_Assets_versioned6_route(params@_) =>
+    // @LINE:19
+    case controllers_authentication_logout8_route(params@_) =>
+      call { 
+        controllers_authentication_logout8_invoker.call(authentication_0.logout)
+      }
+  
+    // @LINE:22
+    case controllers_Assets_versioned9_route(params@_) =>
       call(params.fromPath[String]("file", None)) { (file) =>
-        controllers_Assets_versioned6_invoker.call(Assets_1.versioned(file))
-      }
-  
-    // @LINE:24
-    case controllers_finance_home7_route(params@_) =>
-      call { 
-        controllers_finance_home7_invoker.call(finance_2.home)
+        controllers_Assets_versioned9_invoker.call(Assets_1.versioned(file))
       }
   
     // @LINE:25
-    case controllers_finance_searchTicker8_route(params@_) =>
+    case controllers_finance_home10_route(params@_) =>
       call { 
-        controllers_finance_searchTicker8_invoker.call(finance_2.searchTicker)
+        controllers_finance_home10_invoker.call(finance_2.home)
       }
   
     // @LINE:26
-    case controllers_authentication_logout9_route(params@_) =>
+    case controllers_finance_searchTicker11_route(params@_) =>
       call { 
-        controllers_authentication_logout9_invoker.call(authentication_0.logout)
-      }
-  
-    // @LINE:28
-    case controllers_authentication_test10_route(params@_) =>
-      call { 
-        controllers_authentication_test10_invoker.call(authentication_0.test)
-      }
-  
-    // @LINE:29
-    case controllers_authentication_socket11_route(params@_) =>
-      call { 
-        controllers_authentication_socket11_invoker.call(authentication_0.socket)
+        controllers_finance_searchTicker11_invoker.call(finance_2.searchTicker)
       }
   }
 }

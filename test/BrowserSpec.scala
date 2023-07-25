@@ -16,7 +16,7 @@ class BrowserSpec extends PlaySpec
 
       go to ("http://localhost:" + port + "/login")
 
-      pageSource must include ("LUNA")
+      pageSource must include ("MARTIAN")
     }
   }
 }

@@ -1,5 +1,5 @@
 import akka.stream.Materializer
-import controllers.finance
+import controllers.finance1
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.http.Status
@@ -10,53 +10,44 @@ class FinanceSpec extends PlaySpec with GuiceOneAppPerSuite {
 
   implicit lazy val mat: Materializer = app.materializer
 
+  // You can now directly access the finance1 controller from the app instance
+  val controller = app.injector.instanceOf[finance1]
+
   "Finance" should {
 
     "return the stock price for a given symbol" in {
-      // Create an instance of the Finance controller
-      val controller = new finance(stubControllerComponents())
-
-      // Call the 'getStockPrice' action method with a FakeRequest
-      val fakeRequest = FakeRequest(GET, "/stocks/ABC")
+      val fakeRequest = FakeRequest(GET, "/home") // Use /home instead of /stocks/ABC
       val result = call(controller.getStockPrice("ABC"), fakeRequest)
-
-      // Assert that the response status is OK (200)
       status(result) mustBe Status.OK
-
-      // Assert that the content of the response contains the stock price information
       contentAsString(result) must include("Stock price for symbol ABC")
     }
 
     "return the portfolio tracking data for a user" in {
-      // Create an instance of the Finance controller
-      val controller = new finance(stubControllerComponents())
-
-      // Call the 'getPortfolioData' action method with a FakeRequest
       val fakeRequest = FakeRequest(GET, "/portfolio")
       val result = call(controller.getPortfolioData(), fakeRequest)
-
-      // Assert that the response status is OK (200)
       status(result) mustBe Status.OK
-
-      // Assert that the content of the response contains the portfolio tracking data
-      // You can customize this test based on the expected data format in the response
       contentAsString(result) must include("Portfolio data")
     }
 
     "return the latest financial news" in {
-      // Create an instance of the Finance controller
-      val controller = new finance(stubControllerComponents())
-
-      // Call the 'getFinancialNews' action method with a FakeRequest
       val fakeRequest = FakeRequest(GET, "/news")
       val result = call(controller.getFinancialNews(), fakeRequest)
-
-      // Assert that the response status is OK (200)
       status(result) mustBe Status.OK
-
-      // Assert that the content of the response contains the financial news
-      // You can customize this test based on the expected data format in the response
       contentAsString(result) must include("Financial news")
+    }
+
+    "return an error message for an invalid stock symbol in searchTicker" in {
+      val fakeRequest = FakeRequest(POST, "/search").withFormUrlEncodedBody("symbol" -> "INVALID_SYMBOL")
+      val result = call(controller.searchTicker, fakeRequest)
+      status(result) mustBe Status.OK
+      contentAsString(result) must include("No search results found.")
+    }
+
+    "return an error message for missing form data in searchTicker" in {
+      val fakeRequest = FakeRequest(POST, "/search")
+      val result = call(controller.searchTicker, fakeRequest)
+      status(result) mustBe Status.BAD_REQUEST
+      contentAsString(result) must include("Invalid form data")
     }
 
     // Add more test cases for other functionalities of the finance controller as per your app's requirements

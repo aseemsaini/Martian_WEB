@@ -1,0 +1,37 @@
+[0m[[0m[0mdebug[0m] [0m[0mjavaOptions: Vector()[0m
+[0m[[0m[0mdebug[0m] [0m[0mForking tests - parallelism = false[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreate a single-thread test executor[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunner for org.scalatest.tools.Framework produced 3 initial tasks for 3 tests.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(BrowserSpec, sbt.ForkMain$SubclassFingerscan@77a57272, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mBrowserSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mApplication[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should work from within a browser[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(FunctionalSpec, sbt.ForkMain$SubclassFingerscan@7181ae3f, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mFunctionalSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mRoutes[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should send 404 on a bad request[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should send 200 on a good request[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 2 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(FinanceSpec, sbt.ForkMain$SubclassFingerscan@46238e3f, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mFinanceSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mFinance[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return the stock price for a given symbol[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should return the portfolio tracking data for a user *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  501 was not equal to 200 (FinanceSpec.scala:28)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should return the latest financial news *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  501 was not equal to 200 (FinanceSpec.scala:35)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return an error message for an invalid stock symbol in searchTicker[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return an error message for missing form data in searchTicker[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 5 events.[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 16 seconds, 746 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 8[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 3, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 6, failed 2, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 2 TESTS FAILED ***[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BrowserSpec[0m
+[0m[[0m[0mdebug[0m] [0m[0m	FunctionalSpec[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	FinanceSpec[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m

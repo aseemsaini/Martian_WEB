@@ -14,6 +14,7 @@
       <excludeFolder url="file://$MODULE_DIR$/../../target/global-logging" />
       <excludeFolder url="file://$MODULE_DIR$/../../target/streams" />
       <excludeFolder url="file://$MODULE_DIR$/../../target/task-temp-directory" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/web" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -54,9 +55,9 @@
     <orderEntry type="library" name="sbt: com.typesafe.akka:akka-slf4j_2.13:2.6.20:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.akka:akka-stream_2.13:2.6.20:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:build-link:2.8.19:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:cachecontrol_2.13:2.3.0-RC1:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:cachecontrol_2.13:2.0.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:filters-helpers_2.13:2.8.19:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-ahc-ws-standalone_2.13:2.2.0-M4:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-ahc-ws-standalone_2.13:2.1.10:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-ahc-ws_2.13:2.8.19:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-akka-http-server_2.13:2.8.19:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-cache_2.13:2.8.19:jar" level="project" />
@@ -74,17 +75,17 @@
     <orderEntry type="library" scope="TEST" name="sbt: com.typesafe.play:play-test_2.13:2.8.19:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-ws-standalone-json_2.13:2.1.10:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-ws-standalone-xml_2.13:2.1.10:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-ws-standalone_2.13:2.2.0-M4:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-ws-standalone_2.13:2.1.10:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-ws_2.13:2.8.19:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play_2.13:2.8.19:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:shaded-asynchttpclient:2.2.0-M4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:shaded-oauth:2.2.0-M4:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:shaded-asynchttpclient:2.1.10:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:shaded-oauth:2.1.10:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:twirl-api_2.13:1.5.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.slick:slick-codegen_2.13:3.3.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.slick:slick-hikaricp_2.13:3.3.2:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.slick:slick_2.13:3.3.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe:config:1.4.2:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe:ssl-config-core_2.13:0.6.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe:ssl-config-core_2.13:0.4.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.zaxxer:HikariCP:3.4.5:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: commons-codec:commons-codec:1.11:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: commons-io:commons-io:2.6:jar" level="project" />
@@ -133,7 +134,7 @@
     <orderEntry type="library" scope="TEST" name="sbt: org.mockito:mockito-core:3.12.4:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.objenesis:objenesis:3.2:jar" level="project" />
     <orderEntry type="library" name="sbt: org.postgresql:postgresql:42.6.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.reactivestreams:reactive-streams:1.0.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.reactivestreams:reactive-streams:1.0.3:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-collection-compat_2.13:2.0.0:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-java8-compat_2.13:1.0.2:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-parser-combinators_2.13:1.1.2:jar" level="project" />
@@ -158,7 +159,7 @@
     <orderEntry type="library" scope="TEST" name="sbt: org.seleniumhq.selenium:selenium-support:3.141.59:jar" level="project" />
     <orderEntry type="library" name="sbt: org.slf4j:jcl-over-slf4j:1.7.36:jar" level="project" />
     <orderEntry type="library" name="sbt: org.slf4j:jul-to-slf4j:1.7.36:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.slf4j:slf4j-api:2.0.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.slf4j:slf4j-api:1.7.36:jar" level="project" />
     <orderEntry type="library" name="sbt: tyrex:tyrex:1.0.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: xalan:serializer:2.7.2:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: xalan:xalan:2.7.2:jar" level="project" />

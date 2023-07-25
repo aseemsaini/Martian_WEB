@@ -41,8 +41,12 @@ Seq[Any](format.raw/*2.1*/("""
 <!--</div>-->
 
 <div class="container">
-
-
+    <form method="post" action = """"),_display_(/*20.36*/routes/*20.42*/.finance.searchTicker),format.raw/*20.63*/("""">
+        """),_display_(/*21.10*/helper/*21.16*/.CSRF.formField),format.raw/*21.31*/("""
+        """),format.raw/*22.9*/("""<label for="symbol">Enter Stock Symbol:</label>
+        <input type="text" id="symbol" name="symbol">
+        <button type="submit">Search</button>
+    </form>
 </div>
 
 <footer class="footer">
@@ -68,9 +72,9 @@ Seq[Any](format.raw/*2.1*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/home.scala.html
-                  HASH: 56ecd70a492679835f6af721f34ae8d24db85ec9
-                  MATRIX: 749->1|900->59|927->60
-                  LINES: 21->1|26->2|27->3
+                  HASH: 734c63e53499d3882bd4e36b08dfe303e59518e4
+                  MATRIX: 749->1|900->59|927->60|1345->451|1360->457|1402->478|1441->490|1456->496|1492->511|1528->520
+                  LINES: 21->1|26->2|27->3|44->20|44->20|44->20|45->21|45->21|45->21|46->22
                   -- GENERATED --
               */
           

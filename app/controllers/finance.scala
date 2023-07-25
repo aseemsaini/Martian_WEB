@@ -35,12 +35,16 @@ extends MessagesAbstractController(cc) with HasDatabaseConfigProvider[JdbcProfil
   }
 
   def searchTicker = Action.async { implicit request =>
-    val symbol = "Apple"
     println("Start")
-    polygonApiClient.getTicker(symbol).map { search =>
-      println(search)
-      Ok(views.html.home())
-    }
+    val postVals = request.body.asFormUrlEncoded
+    postVals.map { args =>
+      val stockSymbolOption = args.get("symbol").flatMap(_.headOption)
+      stockSymbolOption.map { symbol =>
+        polygonApiClient.getTicker(symbol).map { searchList =>
+          Ok(views.html.search(searchList))
+        }
+      }.getOrElse (Future.successful(BadRequest("Please provide a valid stock symbol")))
+    }.getOrElse (Future.successful(BadRequest("Invalid form data")))
   }
 
 

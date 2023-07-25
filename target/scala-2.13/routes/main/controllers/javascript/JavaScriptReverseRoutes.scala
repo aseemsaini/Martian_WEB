@@ -9,7 +9,7 @@ import _root_.controllers.Assets.Asset
 // @LINE:6
 package controllers.javascript {
 
-  // @LINE:21
+  // @LINE:22
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -17,7 +17,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:21
+    // @LINE:22
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -57,7 +57,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:26
+    // @LINE:19
     def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.authentication.logout",
       """
@@ -67,7 +67,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:29
+    // @LINE:17
     def socket: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.authentication.socket",
       """
@@ -77,7 +77,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
+    // @LINE:16
     def test: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.authentication.test",
       """
@@ -109,7 +109,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:24
+  // @LINE:25
   class Reversefinance(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -117,7 +117,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:24
+    // @LINE:25
     def home: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.finance.home",
       """
@@ -127,12 +127,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:25
+    // @LINE:26
     def searchTicker: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.finance.searchTicker",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "search"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "search"})
         }
       """
     )
