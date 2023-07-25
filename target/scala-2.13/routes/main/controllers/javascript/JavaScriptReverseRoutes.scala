@@ -9,40 +9,20 @@ import _root_.controllers.Assets.Asset
 // @LINE:6
 package controllers.javascript {
 
-  // @LINE:6
-  class ReverseHomeController(_prefix: => String) {
+  // @LINE:21
+  class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:6
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.index",
+    // @LINE:21
+    def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Assets.versioned",
       """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:10
-  class ReverseAsyncController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:10
-    def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AsyncController.message",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "message"})
+        function(file0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("file", file0)})
         }
       """
     )
@@ -77,7 +57,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:25
+    // @LINE:26
     def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.authentication.logout",
       """
@@ -87,7 +67,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
+    // @LINE:29
     def socket: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.authentication.socket",
       """
@@ -97,7 +77,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
+    // @LINE:28
     def test: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.authentication.test",
       """
@@ -117,16 +97,6 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:24
-    def home: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.authentication.home",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "home"})
-        }
-      """
-    )
-  
     // @LINE:13
     def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.authentication.login",
@@ -139,20 +109,70 @@ package controllers.javascript {
   
   }
 
-  // @LINE:21
-  class ReverseAssets(_prefix: => String) {
+  // @LINE:24
+  class Reversefinance(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:21
-    def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Assets.versioned",
+    // @LINE:24
+    def home: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.finance.home",
       """
-        function(file0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("file", file0)})
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "home"})
+        }
+      """
+    )
+  
+    // @LINE:25
+    def searchTicker: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.finance.searchTicker",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "search"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:6
+  class ReverseHomeController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:6
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.index",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:10
+  class ReverseAsyncController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:10
+    def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AsyncController.message",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "message"})
         }
       """
     )

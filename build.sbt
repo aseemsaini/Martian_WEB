@@ -5,8 +5,10 @@ lazy val root = (project in file("."))
     version := "1.0-SNAPSHOT",
     scalaVersion := "2.13.10",
     libraryDependencies ++= Seq(
-      guice,jdbc,
+      guice,jdbc,ws,ehcache,
       "com.h2database" % "h2" % "1.4.200",
+      "com.typesafe.akka" %% "akka-http" % "10.2.6",
+      "com.typesafe.play" %% "play-ahc-ws-standalone" % "2.1.10",
       "com.typesafe.play" %% "play-slick" % "5.0.0",
       "com.typesafe.slick" %% "slick-codegen" % "3.3.3",
       "com.typesafe.slick" %% "slick-hikaricp" % "3.3.2",

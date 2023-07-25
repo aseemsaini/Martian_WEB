@@ -1,13 +1,55 @@
 package controllers
 
 import javax.inject._
+import play.api.mvc.{MessagesAbstractController, _}
+import Models.TaskListInDatabaseModel
+import org.h2.jdbc.JdbcDatabaseMetaData
 import play.api.mvc._
-import services.Counter
+import play.api.data._
+import play.api.data.Forms._
+import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
+import slick.jdbc.JdbcProfile
+import scala.concurrent.{Await, ExecutionContext, Future}
+import Models.Tables.UsersRow
+import akka.actor.ActorSystem
+import akka.stream.Materializer
+import play.api.libs.streams.ActorFlow
+import actors.ChatActor
+import akka.actor.Props
+import actors.ChatManager
+import java.sql.Timestamp
+import javax.inject._
 
 @Singleton
-class finance @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+class finance @Inject()(protected val dbConfigProvider: DatabaseConfigProvider, cc: MessagesControllerComponents
+                       ,polygonApiClient: PolygonApiClient)(implicit assetsFinder: AssetsFinder, ec: ExecutionContext, system: ActorSystem, mat:Materializer)
+extends MessagesAbstractController(cc) with HasDatabaseConfigProvider[JdbcProfile]{
 
-  // Add your controller methods here based on the test cases in FinanceSpec.scala
+  def home = Action.async { implicit request =>
+    val symbol = "AAPL"
+    searchTicker()
+    polygonApiClient.getStockPrice(symbol).map { stockPrice =>
+      println(stockPrice)
+      Ok(views.html.home())
+    }
+  }
+
+  def searchTicker = Action.async { implicit request =>
+    val symbol = "Apple"
+    println("Start")
+    polygonApiClient.getTicker(symbol).map { search =>
+      println(search)
+      Ok(views.html.home())
+    }
+  }
+
+
+
+
+
+
+
+
 
   def getStockPrice(symbol: String): Action[AnyContent] = Action {
     // Implement the logic to get the stock price for a given symbol

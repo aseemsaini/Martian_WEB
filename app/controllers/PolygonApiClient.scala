@@ -1,0 +1,54 @@
+package controllers
+
+import play.api.libs.json.JsValue
+
+import javax.inject._
+import play.api.libs.ws._
+import play.api.libs.json.JsValue._
+
+import scala.concurrent.{ExecutionContext, Future}
+
+@Singleton
+class PolygonApiClient @Inject()(ws: WSClient)(implicit ec: ExecutionContext) {
+
+  private val baseUrl = "https://api.polygon.io"
+  private val apiKey = "ZZNkOA0d9h77o_OMJqepnHomUbI1TD47"
+  private val api_alpha = "Y7BV9OVUZZ7JSTTA"
+
+
+  def getStockPrice(symbol: String): Future[Double] = {
+    val url = s"$baseUrl/v2/aggs/ticker/$symbol/prev?adjusted=true&apiKey=$apiKey"
+    ws.url(url).get().map { response =>
+      println(response)
+      response.status match {
+        case 200 => {
+          val stockPrice = (response.json \ "results" \ 0 \ "c").asOpt[Double].getOrElse(0.0)
+          println(s"Previous stock price: $stockPrice")
+          stockPrice
+        }
+        case _ => 0.0
+      }
+    }
+  }
+
+  def getTicker(symbol: String): Future[Seq[(String, String)]] = {
+    val url = s"https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=$symbol&apikey=$api_alpha"
+    ws.url(url).get().map { response =>
+      println(response)
+      response.status match {
+        case 200 => {
+          val searchResults = (response.json \ "bestMatches").as[Seq[JsValue]].flatMap { jsValue =>
+            for {
+              symbol <- (jsValue \ "1. symbol").asOpt[String]
+              name <- (jsValue \ "2. name").asOpt[String]
+            } yield (symbol, name)
+          }
+          println(s"Search: $searchResults")
+          searchResults
+        }
+        case _ => Seq.empty[(String, String)]
+      }
+    }
+  }
+
+}

@@ -28,33 +28,25 @@ Seq[Any](format.raw/*2.1*/("""
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Luna | Home</title>
-    <link rel="stylesheet" href="/assets/stylesheets/home.css">
+    <title>Martian | Home</title>
+<!--    <link rel="stylesheet" href="/assets/stylesheets/home.css">-->
 </head>
 <body>
 <header>
     <h1>Welcome To Martian</h1>
 </header>
 
-<div class="logo">
-    <img src="/assets/images/luna_logo.png">
-</div>
+<!--<div class="logo">-->
+<!--    <img src="/assets/images/luna_logo.png">-->
+<!--</div>-->
 
 <div class="container">
-    <div class="tweet-form">
 
-    </div>
-
-    <section class="tweets">
-        <h2 class="topic">See what the world is Tweeting</h2>
-        <ul>
-        </ul>
-    </section>
 
 </div>
 
 <footer class="footer">
-    <p>&copy; 2023 Luna. All rights reserved.</p>
+    <p>&copy; 2023 Martian. All rights reserved.</p>
 </footer>
 
 </body>
@@ -76,7 +68,7 @@ Seq[Any](format.raw/*2.1*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/home.scala.html
-                  HASH: cbde4316944e5424b4bbbfbf2681901ad090698f
+                  HASH: 56ecd70a492679835f6af721f34ae8d24db85ec9
                   MATRIX: 749->1|900->59|927->60
                   LINES: 21->1|26->2|27->3
                   -- GENERATED --

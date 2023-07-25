@@ -1,5 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/app/views/login2.scala.html:47:89: value createUserForm2 is not a member of controllers.Reverseauthentication[0m
-[0m[[0m[31merror[0m] [0m[0mdid you mean createUserForm?[0m
-[0m[[0m[31merror[0m] [0m[0m            <button type="button" onclick="window.location.href='@routes.authentication.createUserForm2'" class="create-account-btn">Create New Account</button>[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/app/controllers/authentication.scala:80:54: value home is not a member of controllers.Reversefinance[0m
+[0m[[0m[31merror[0m] [0m[0m        val redirectResult = Redirect(routes.finance.home).withSession(sessionData.toSeq: _*)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                     ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

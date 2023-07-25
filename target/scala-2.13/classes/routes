@@ -21,7 +21,8 @@ POST   /createUserForm2             controllers.authentication.createUserForm
 GET     /assets/*file               controllers.Assets.versioned(file)
 
 #Home Page
-GET     /home                       controllers.authentication.home
+GET     /home                       controllers.finance.home
+GET     /search                     controllers.finance.searchTicker
 GET     /logout                    controllers.authentication.logout
 
 GET     /test                       controllers.authentication.test

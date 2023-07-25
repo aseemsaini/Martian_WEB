@@ -37,10 +37,6 @@ class authentication @Inject()(protected val dbConfigProvider: DatabaseConfigPro
   private var user = ""
   private var searchUser = ""
 
-  def home = Action { implicit request =>
-    Ok(views.html.home())
-  }
-
 
   def createUserForm = Action.async { implicit request =>
     val executionContext = scala.concurrent.ExecutionContext.global
@@ -81,7 +77,7 @@ class authentication @Inject()(protected val dbConfigProvider: DatabaseConfigPro
       println(result)
       if (result) {
         val sessionData = Map("username" -> username)
-        val redirectResult = Redirect(routes.authentication.home).withSession(sessionData.toSeq: _*)
+        val redirectResult = Redirect(routes.finance.home).withSession(sessionData.toSeq: _*)
         Future.successful(redirectResult)
       } else {
         val result = Redirect(routes.authentication.login).flashing("error" -> "INVALID CREDENTIALS")
