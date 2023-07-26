@@ -25,5 +25,7 @@ GET     /assets/*file               controllers.Assets.versioned(file)
 GET     /home                       controllers.finance.home
 POST    /search                     controllers.finance.searchTicker
 
+POST    /stockDetails               controllers.finance.stockDetails
+
 
 

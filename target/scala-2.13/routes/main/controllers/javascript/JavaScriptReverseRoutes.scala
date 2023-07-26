@@ -137,6 +137,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:28
+    def stockDetails: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.finance.stockDetails",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "stockDetails"})
+        }
+      """
+    )
+  
   }
 
   // @LINE:6

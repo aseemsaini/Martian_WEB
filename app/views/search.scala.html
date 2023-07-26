@@ -1,4 +1,4 @@
-@(symbolList: Seq[(String, String)])(implicit request: MessagesRequestHeader, flash: Flash)
+@(symbolList: Seq[(String, String, String)])(implicit request: MessagesRequestHeader, flash: Flash)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>Martian | Home</title>
     <!--    <link rel="stylesheet" href="/assets/stylesheets/home.css">-->
+
 </head>
 <body>
 <header>
@@ -19,10 +20,11 @@
 <div class="container">
     @if(symbolList.nonEmpty) {
     <ul>
-        @for((symbol, name) <- symbolList) {
-        <li>
+        @for((symbol, name, region) <- symbolList) {
+        <li class="stock-item" data-symbol="@symbol">
             <p>Symbol: @symbol</p>
             <p>Name: @name</p>
+            <p>Region: @region</p>
         </li>
         }
     </ul>
@@ -31,6 +33,7 @@
     }
 </div>
 
+<script src="@routes.Assets.versioned("javascripts/search.js")"></script>
 <footer class="footer">
     <p>&copy; 2023 Martian. All rights reserved.</p>
 </footer>

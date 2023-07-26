@@ -62,6 +62,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(file:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """home""", """controllers.finance.home"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """search""", """controllers.finance.searchTicker"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """stockDetails""", """controllers.finance.stockDetails"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -286,6 +287,24 @@ class Routes(
     )
   )
 
+  // @LINE:28
+  private[this] lazy val controllers_finance_stockDetails12_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("stockDetails")))
+  )
+  private[this] lazy val controllers_finance_stockDetails12_invoker = createInvoker(
+    finance_2.stockDetails,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.finance",
+      "stockDetails",
+      Nil,
+      "POST",
+      this.prefix + """stockDetails""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -359,6 +378,12 @@ class Routes(
     case controllers_finance_searchTicker11_route(params@_) =>
       call { 
         controllers_finance_searchTicker11_invoker.call(finance_2.searchTicker)
+      }
+  
+    // @LINE:28
+    case controllers_finance_stockDetails12_route(params@_) =>
+      call { 
+        controllers_finance_stockDetails12_invoker.call(finance_2.stockDetails)
       }
   }
 }

@@ -1,0 +1,10 @@
+2023-07-26 15:20:10,408 [WARN] from play.api.http.HttpConfiguration in main - 
+Your secret key is very short, and may be vulnerable to dictionary attacks.  Your application may not be secure.
+The application secret should ideally be 32 bytes of completely random input, encoded in base64.
+To set the application secret, please read http://playframework.com/documentation/latest/ApplicationSecret
+          
+2023-07-26 15:20:11,939 [INFO] from play.api.Play in main - Application started (Prod) (no global state)
+2023-07-26 15:20:13,367 [INFO] from play.core.server.AkkaHttpServer in main - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+2023-07-26 15:20:37,628 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-4 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:22:38,759 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-8 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:22:58,972 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-4 - [CSRF] Check failed because application/json for request /stockDetails

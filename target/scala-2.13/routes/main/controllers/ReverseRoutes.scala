@@ -94,6 +94,12 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "search")
     }
   
+    // @LINE:28
+    def stockDetails: Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "stockDetails")
+    }
+  
   }
 
   // @LINE:6

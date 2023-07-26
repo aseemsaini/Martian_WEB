@@ -1,0 +1,10 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(start, Some(260a0c12-a864-46f3-b9a3-190f1e88278f), Some(CommandSource(console0)))[0m
+[0m[[0m[33mwarn[0m] [0m[0mThe start command is deprecated, and will be removed in a future version of Play.[0m
+[0m[[0m[33mwarn[0m] [0m[0mTo run Play in production mode, run 'stage' instead, and then execute the generated start script in target/universal/stage/bin.[0m
+[0m[[0m[33mwarn[0m] [0m[0mTo test your application using production mode, run 'runProd' instead.[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mWrote /Users/aseemsaini/Desktop/ACM/Martian_WEB/target/scala-2.13/play-scala-starter-example_2.13-1.0-SNAPSHOT.pom[0m
+[0m[[0m[0minfo[0m] [0m[0mMain Scala API documentation to /Users/aseemsaini/Desktop/ACM/Martian_WEB/target/scala-2.13/api...[0m
+[0m[[0m[0mdebug[0m] [0m[0mExporting web-assets:play-scala-starter-example[0m
+[0m[[0m[0minfo[0m] [0m[0mMain Scala API documentation successful.[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m

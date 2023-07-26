@@ -9,6 +9,7 @@ import play.api.data._
 import play.api.data.Forms._
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
+
 import scala.concurrent.{Await, ExecutionContext, Future}
 import Models.Tables.UsersRow
 import akka.actor.ActorSystem
@@ -17,12 +18,31 @@ import play.api.libs.streams.ActorFlow
 import actors.ChatActor
 import akka.actor.Props
 import actors.ChatManager
+import play.api.libs.json.Format.GenericFormat
+import play.api.libs.json.JsObject.writes
+import play.api.libs.json.OFormat.oFormatFromReadsAndOWrites
+import play.api.libs.json.{Format, JsValue, Json, Writes}
+
 import java.sql.Timestamp
 import javax.inject._
+import play.api.libs.json._
+
+
+
+case class StockDetails(symbol: String, open: Double, high: Double, low:Double, close:Double, volume:Double)
+
+object StockDetails {
+  implicit val stockDetailsFormat: Format[StockDetails] = Json.format[StockDetails]
+}
 
 @Singleton
-class finance @Inject()(protected val dbConfigProvider: DatabaseConfigProvider, cc: MessagesControllerComponents
-                       ,polygonApiClient: PolygonApiClient)(implicit assetsFinder: AssetsFinder, ec: ExecutionContext, system: ActorSystem, mat:Materializer)
+class finance @Inject()(protected val dbConfigProvider: DatabaseConfigProvider,
+                        cc: MessagesControllerComponents
+                       ,polygonApiClient: PolygonApiClient)
+                       (implicit assetsFinder: AssetsFinder,
+                        ec: ExecutionContext,
+                        system: ActorSystem,
+                        mat:Materializer)
 extends MessagesAbstractController(cc) with HasDatabaseConfigProvider[JdbcProfile]{
 
   def home = Action.async { implicit request =>
@@ -48,6 +68,24 @@ extends MessagesAbstractController(cc) with HasDatabaseConfigProvider[JdbcProfil
   }
 
 
+  def stockDetails: Action[AnyContent] = Action.async { implicit request =>
+    val symbolResult = request.body.asJson.flatMap(json => (json \ "symbol").asOpt[String])
+    symbolResult match {
+      case Some(symbol) =>
+        println(symbol)
+        polygonApiClient.getStockDetails(symbol).map {
+          case Some(stockDetails) =>
+            Ok(Json.toJson(stockDetails))
+          case None =>
+            BadRequest("Stock details not found for the given symbol.")
+        }.recover {
+          case ex: Exception =>
+            BadRequest(s"Error fetching stock details: ${ex.getMessage}")
+        }
+      case None =>
+        Future.successful(BadRequest("Missing 'symbol' parameter in the request body"))
+    }
+  }
 
 
 

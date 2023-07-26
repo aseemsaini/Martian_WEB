@@ -1,4 +1,64 @@
-2023-07-25 15:43:01,488 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-1-thread-1-ScalaTest-running-BrowserSpec - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 2147508000 milliseconds timeout
-2023-07-25 15:43:01,508 [INFO] from play.core.server.AkkaHttpServer in application-akka.actor.internal-dispatcher-2 - Terminating server binding for /0:0:0:0:0:0:0:0:62450
-2023-07-25 15:43:01,523 [INFO] from play.core.server.AkkaHttpServer in application-akka.actor.default-dispatcher-4 - Terminating server binding for /0:0:0:0:0:0:0:0:62451
-2023-07-25 15:43:01,981 [INFO] from play.core.server.AkkaHttpServer in application-akka.actor.internal-dispatcher-3 - Running provided shutdown stop hooks
+2023-07-26 15:07:42,999 [WARN] from play.api.http.HttpConfiguration in play-dev-mode-akka.actor.default-dispatcher-11 - 
+Your secret key is very short, and may be vulnerable to dictionary attacks.  Your application may not be secure.
+The application secret should ideally be 32 bytes of completely random input, encoded in base64. While the application
+will be able to start in production mode, you will also see a warning when it is starting.
+To set the application secret, please read http://playframework.com/documentation/latest/ApplicationSecret
+          
+2023-07-26 15:07:43,049 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-11 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2023-07-26 15:07:43,316 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-11 - Application started (Dev) (no global state)
+2023-07-26 15:08:02,882 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-7 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:08:42,335 [WARN] from akka.actor.CoordinatedShutdown in application-akka.actor.default-dispatcher-10 - Coordinated shutdown phase [service-stop] timed out after 5000 milliseconds
+2023-07-26 15:08:42,818 [WARN] from play.api.http.HttpConfiguration in play-dev-mode-akka.actor.default-dispatcher-21 - 
+Your secret key is very short, and may be vulnerable to dictionary attacks.  Your application may not be secure.
+The application secret should ideally be 32 bytes of completely random input, encoded in base64. While the application
+will be able to start in production mode, you will also see a warning when it is starting.
+To set the application secret, please read http://playframework.com/documentation/latest/ApplicationSecret
+          
+2023-07-26 15:08:42,824 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-21 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2023-07-26 15:08:42,834 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-21 - Application started (Dev) (no global state)
+2023-07-26 15:08:42,886 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-5 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:08:42,886 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-4 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:08:42,888 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-7 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:08:42,888 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-6 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:08:49,938 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-6 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:08:52,025 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-6 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:10:09,668 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-5 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:11:06,088 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-12 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:11:18,005 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-12 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:12:16,988 [WARN] from akka.actor.CoordinatedShutdown in application-akka.actor.default-dispatcher-5 - Coordinated shutdown phase [service-stop] timed out after 5000 milliseconds
+2023-07-26 15:12:17,715 [WARN] from play.api.http.HttpConfiguration in play-dev-mode-akka.actor.default-dispatcher-10 - 
+Your secret key is very short, and may be vulnerable to dictionary attacks.  Your application may not be secure.
+The application secret should ideally be 32 bytes of completely random input, encoded in base64. While the application
+will be able to start in production mode, you will also see a warning when it is starting.
+To set the application secret, please read http://playframework.com/documentation/latest/ApplicationSecret
+          
+2023-07-26 15:12:17,725 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-10 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2023-07-26 15:12:17,744 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-10 - Application started (Dev) (no global state)
+2023-07-26 15:12:24,707 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-9 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:12:34,447 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-9 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:12:56,625 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-9 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:13:49,633 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-9 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:14:51,027 [WARN] from play.filters.CSRF in application-akka.actor.default-dispatcher-11 - [CSRF] Check failed because application/json for request /stockDetails
+2023-07-26 15:15:16,362 [WARN] from com.zaxxer.hikari.pool.HikariPool in db housekeeper - db - Retrograde clock change detected (housekeeper delta=28s454ms), soft-evicting connections from pool.
+2023-07-26 15:19:44,813 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-5-thread-2 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2023-07-26 15:19:44,817 [INFO] from play.core.server.AkkaHttpServer in pool-5-thread-2 - Stopping Akka HTTP server...
+2023-07-26 15:19:44,822 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-27 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2023-07-26 15:19:47,481 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-38 - Running provided shutdown stop hooks

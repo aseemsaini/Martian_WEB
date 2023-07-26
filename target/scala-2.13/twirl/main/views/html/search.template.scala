@@ -15,10 +15,10 @@ import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
 
-object search extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[Seq[scala.Tuple2[String, String]],MessagesRequestHeader,Flash,play.twirl.api.HtmlFormat.Appendable] {
+object search extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[Seq[scala.Tuple3[String, String, String]],MessagesRequestHeader,Flash,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(symbolList: Seq[(String, String)])(implicit request: MessagesRequestHeader, flash: Flash):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(symbolList: Seq[(String, String, String)])(implicit request: MessagesRequestHeader, flash: Flash):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -30,6 +30,7 @@ Seq[Any](format.raw/*2.1*/("""
     <meta charset="UTF-8">
     <title>Martian | Home</title>
     <!--    <link rel="stylesheet" href="/assets/stylesheets/home.css">-->
+
 </head>
 <body>
 <header>
@@ -41,20 +42,22 @@ Seq[Any](format.raw/*2.1*/("""
 <!--</div>-->
 
 <div class="container">
-    """),_display_(/*20.6*/if(symbolList.nonEmpty)/*20.29*/ {_display_(Seq[Any](format.raw/*20.31*/("""
-    """),format.raw/*21.5*/("""<ul>
-        """),_display_(/*22.10*/for((symbol, name) <- symbolList) yield /*22.43*/ {_display_(Seq[Any](format.raw/*22.45*/("""
-        """),format.raw/*23.9*/("""<li>
-            <p>Symbol: """),_display_(/*24.25*/symbol),format.raw/*24.31*/("""</p>
-            <p>Name: """),_display_(/*25.23*/name),format.raw/*25.27*/("""</p>
+    """),_display_(/*21.6*/if(symbolList.nonEmpty)/*21.29*/ {_display_(Seq[Any](format.raw/*21.31*/("""
+    """),format.raw/*22.5*/("""<ul>
+        """),_display_(/*23.10*/for((symbol, name, region) <- symbolList) yield /*23.51*/ {_display_(Seq[Any](format.raw/*23.53*/("""
+        """),format.raw/*24.9*/("""<li class="stock-item" data-symbol=""""),_display_(/*24.46*/symbol),format.raw/*24.52*/("""">
+            <p>Symbol: """),_display_(/*25.25*/symbol),format.raw/*25.31*/("""</p>
+            <p>Name: """),_display_(/*26.23*/name),format.raw/*26.27*/("""</p>
+            <p>Region: """),_display_(/*27.25*/region),format.raw/*27.31*/("""</p>
         </li>
-        """)))}),format.raw/*27.10*/("""
-    """),format.raw/*28.5*/("""</ul>
-    """)))}/*29.7*/else/*29.11*/{_display_(Seq[Any](format.raw/*29.12*/("""
-    """),format.raw/*30.5*/("""<p>No search results found.</p>
-    """)))}),format.raw/*31.6*/("""
-"""),format.raw/*32.1*/("""</div>
+        """)))}),format.raw/*29.10*/("""
+    """),format.raw/*30.5*/("""</ul>
+    """)))}/*31.7*/else/*31.11*/{_display_(Seq[Any](format.raw/*31.12*/("""
+    """),format.raw/*32.5*/("""<p>No search results found.</p>
+    """)))}),format.raw/*33.6*/("""
+"""),format.raw/*34.1*/("""</div>
 
+<script src=""""),_display_(/*36.15*/routes/*36.21*/.Assets.versioned("javascripts/search.js")),format.raw/*36.63*/(""""></script>
 <footer class="footer">
     <p>&copy; 2023 Martian. All rights reserved.</p>
 </footer>
@@ -67,9 +70,9 @@ Seq[Any](format.raw/*2.1*/("""
     }
   }
 
-  def render(symbolList:Seq[scala.Tuple2[String, String]],request:MessagesRequestHeader,flash:Flash): play.twirl.api.HtmlFormat.Appendable = apply(symbolList)(request,flash)
+  def render(symbolList:Seq[scala.Tuple3[String, String, String]],request:MessagesRequestHeader,flash:Flash): play.twirl.api.HtmlFormat.Appendable = apply(symbolList)(request,flash)
 
-  def f:((Seq[scala.Tuple2[String, String]]) => (MessagesRequestHeader,Flash) => play.twirl.api.HtmlFormat.Appendable) = (symbolList) => (request,flash) => apply(symbolList)(request,flash)
+  def f:((Seq[scala.Tuple3[String, String, String]]) => (MessagesRequestHeader,Flash) => play.twirl.api.HtmlFormat.Appendable) = (symbolList) => (request,flash) => apply(symbolList)(request,flash)
 
   def ref: this.type = this
 
@@ -79,9 +82,9 @@ Seq[Any](format.raw/*2.1*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/search.scala.html
-                  HASH: 8f89de484ef8afe650b00b47dc5e549dbd64fd95
-                  MATRIX: 785->1|969->92|996->93|1375->446|1407->469|1447->471|1479->476|1520->490|1569->523|1609->525|1645->534|1701->563|1728->569|1782->596|1807->600|1866->628|1898->633|1927->645|1940->649|1979->650|2011->655|2078->692|2106->693
-                  LINES: 21->1|26->2|27->3|44->20|44->20|44->20|45->21|46->22|46->22|46->22|47->23|48->24|48->24|49->25|49->25|51->27|52->28|53->29|53->29|53->29|54->30|55->31|56->32
+                  HASH: 0b373d8954ac4b2900ccb2408f52eb41af88d9c4
+                  MATRIX: 793->1|985->100|1012->101|1392->455|1424->478|1464->480|1496->485|1537->499|1594->540|1634->542|1670->551|1734->588|1761->594|1815->621|1842->627|1896->654|1921->658|1977->687|2004->693|2063->721|2095->726|2124->738|2137->742|2176->743|2208->748|2275->785|2303->786|2352->808|2367->814|2430->856
+                  LINES: 21->1|26->2|27->3|45->21|45->21|45->21|46->22|47->23|47->23|47->23|48->24|48->24|48->24|49->25|49->25|50->26|50->26|51->27|51->27|53->29|54->30|55->31|55->31|55->31|56->32|57->33|58->34|60->36|60->36|60->36
                   -- GENERATED --
               */
           

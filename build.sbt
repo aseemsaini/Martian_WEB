@@ -16,6 +16,8 @@ lazy val root = (project in file("."))
       "org.postgresql" % "postgresql" % "42.6.0",
       "org.mindrot" % "jbcrypt" % "0.4",
       "org.mockito" % "mockito-core" % "3.12.4" % Test,
+      "com.typesafe.play" %% "play-test" % "2.8.20" % Test,
+      "org.jsoup" % "jsoup" % "1.16.1",
       "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
     ),
     scalacOptions ++= Seq(

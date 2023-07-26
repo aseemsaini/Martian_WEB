@@ -1,4 +1,5 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/app/controllers/finance1.scala:24:7: finance is already defined as class finance[0m
-[0m[[0m[31merror[0m] [0m[0mclass finance @Inject()(protected val dbConfigProvider: DatabaseConfigProvider, cc: MessagesControllerComponents[0m
-[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/app/controllers/finance.scala:74:27: diverging implicit expansion for type play.api.libs.json.Reads[finance.this.polygonApiClient.StockDetails][0m
+[0m[[0m[31merror[0m] [0m[0mstarting with method oFormatFromReadsAndOWrites in object OFormat[0m
+[0m[[0m[31merror[0m] [0m[0m            Ok(Json.toJson(stockDetails))[0m
+[0m[[0m[31merror[0m] [0m[0m                          ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
