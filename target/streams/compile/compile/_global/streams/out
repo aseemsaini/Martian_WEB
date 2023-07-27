@@ -1,5 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/app/controllers/finance.scala:74:27: diverging implicit expansion for type play.api.libs.json.Reads[finance.this.polygonApiClient.StockDetails][0m
-[0m[[0m[31merror[0m] [0m[0mstarting with method oFormatFromReadsAndOWrites in object OFormat[0m
-[0m[[0m[31merror[0m] [0m[0m            Ok(Json.toJson(stockDetails))[0m
-[0m[[0m[31merror[0m] [0m[0m                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/aseemsaini/Desktop/ACM/Martian_WEB/app/controllers/PolygonApiClient.scala:85:41: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : String[0m
+[0m[[0m[31merror[0m] [0m[0m required: Double[0m
+[0m[[0m[31merror[0m] [0m[0m              Some(StockDetails(symbol, open, high, low, close, volume))[0m
+[0m[[0m[31merror[0m] [0m[0m                                        ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

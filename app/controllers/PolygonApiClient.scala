@@ -17,7 +17,7 @@ class PolygonApiClient @Inject()(ws: WSClient)(implicit ec: ExecutionContext) {
   private val apiKey = "ZZNkOA0d9h77o_OMJqepnHomUbI1TD47"
   private val api_alpha = "Y7BV9OVUZZ7JSTTA"
 
-  case class StockDetails(symbol: String, open: Double, high: Double, low:Double, close:Double, volume:Double)
+  case class StockDetails(symbol: String, last_refreshed:String, open: Double, high: Double, low:Double, close:Double, volume:Double)
 
   object StockDetails {
     implicit val stockDetailsReads: Reads[StockDetails] = Json.reads[StockDetails]
@@ -62,20 +62,27 @@ class PolygonApiClient @Inject()(ws: WSClient)(implicit ec: ExecutionContext) {
   }
 
   def getStockDetails(symbol:String):Future[Option[StockDetails]] = {
-    val currentDate = LocalDate.now()
-    val yesterday = currentDate.minusDays(1)
-    val url = s"$baseUrl/v1/open-close/$symbol/$yesterday?adjusted=true&apiKey=$apiKey"
+    val url = s"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=$symbol&apikey=$api_alpha"
     ws.url(url).get().map{ response =>
       println(response)
       response.status match {
         case 200 => {
-          val open = (response.json \ "open").asOpt[Double].getOrElse(0.0)
-          val high = (response.json \ "high").asOpt[Double].getOrElse(0.0)
-          val low = (response.json \ "low").asOpt[Double].getOrElse(0.0)
-          val close = (response.json \ "close").asOpt[Double].getOrElse(0.0)
-          val volume = (response.json \ "volume").asOpt[Double].getOrElse(0.0)
-          Some(StockDetails(symbol, open, high, low, close, volume))
+          val date = (response.json \ "Meta Data" \ "3. Last Refreshed").as[String]
+          println(date)
+          val timeSeriesData = (response.json \ "Time Series (Daily)").as[Map[String, Map[String, String]]]
+          timeSeriesData.get(date).map { data =>
+              println("STARTTTTTTTTTTTTTTTTT")
+              val open = data("1. open").toDouble
+              val high = data("2. high").toDouble
+              val low = data("3. low").toDouble
+              val close = data("4. close").toDouble
+              val volume = data("5. volume").toDouble
+              println("OPENNNNNNNN")
+              println(open)
+              Some(StockDetails(symbol, date, open, high, low, close, volume))
+          }.getOrElse(None)
         }
+        case _ => None // Error occurred while fetching data
       }
     }
   }

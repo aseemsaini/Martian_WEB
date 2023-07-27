@@ -95,9 +95,9 @@ package controllers {
     }
   
     // @LINE:28
-    def stockDetails: Call = {
+    def stockDetails(symbol:String): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "stockDetails")
+      Call("GET", _prefix + { _defaultPrefix } + "stockDetails/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("symbol", symbol)))
     }
   
   }

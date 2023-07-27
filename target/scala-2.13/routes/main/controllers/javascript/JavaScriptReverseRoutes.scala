@@ -141,8 +141,8 @@ package controllers.javascript {
     def stockDetails: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.finance.stockDetails",
       """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "stockDetails"})
+        function(symbol0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "stockDetails/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("symbol", symbol0))})
         }
       """
     )

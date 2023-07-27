@@ -62,7 +62,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(file:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """home""", """controllers.finance.home"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """search""", """controllers.finance.searchTicker"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """stockDetails""", """controllers.finance.stockDetails"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """stockDetails/""" + "$" + """symbol<[^/]+>""", """controllers.finance.stockDetails(symbol:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -288,18 +288,18 @@ class Routes(
   )
 
   // @LINE:28
-  private[this] lazy val controllers_finance_stockDetails12_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("stockDetails")))
+  private[this] lazy val controllers_finance_stockDetails12_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("stockDetails/"), DynamicPart("symbol", """[^/]+""",true)))
   )
   private[this] lazy val controllers_finance_stockDetails12_invoker = createInvoker(
-    finance_2.stockDetails,
+    finance_2.stockDetails(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.finance",
       "stockDetails",
-      Nil,
-      "POST",
-      this.prefix + """stockDetails""",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """stockDetails/""" + "$" + """symbol<[^/]+>""",
       """""",
       Seq()
     )
@@ -382,8 +382,8 @@ class Routes(
   
     // @LINE:28
     case controllers_finance_stockDetails12_route(params@_) =>
-      call { 
-        controllers_finance_stockDetails12_invoker.call(finance_2.stockDetails)
+      call(params.fromPath[String]("symbol", None)) { (symbol) =>
+        controllers_finance_stockDetails12_invoker.call(finance_2.stockDetails(symbol))
       }
   }
 }

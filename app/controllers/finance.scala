@@ -29,7 +29,7 @@ import play.api.libs.json._
 
 
 
-case class StockDetails(symbol: String, open: Double, high: Double, low:Double, close:Double, volume:Double)
+case class StockDetails(symbol: String, last_refreshed:String, open: Double, high: Double, low:Double, close:Double, volume:Double)
 
 object StockDetails {
   implicit val stockDetailsFormat: Format[StockDetails] = Json.format[StockDetails]
@@ -68,22 +68,17 @@ extends MessagesAbstractController(cc) with HasDatabaseConfigProvider[JdbcProfil
   }
 
 
-  def stockDetails: Action[AnyContent] = Action.async { implicit request =>
-    val symbolResult = request.body.asJson.flatMap(json => (json \ "symbol").asOpt[String])
-    symbolResult match {
-      case Some(symbol) =>
-        println(symbol)
-        polygonApiClient.getStockDetails(symbol).map {
-          case Some(stockDetails) =>
-            Ok(Json.toJson(stockDetails))
-          case None =>
-            BadRequest("Stock details not found for the given symbol.")
-        }.recover {
-          case ex: Exception =>
-            BadRequest(s"Error fetching stock details: ${ex.getMessage}")
-        }
+  def stockDetails(symbol: String): Action[AnyContent] = Action.async { implicit request =>
+    println("symbol", symbol)
+    polygonApiClient.getStockDetails(symbol).map {
+      case Some(stockDetails) =>
+        Ok(Json.toJson(stockDetails))
       case None =>
-        Future.successful(BadRequest("Missing 'symbol' parameter in the request body"))
+        BadRequest("Stock details not found for the given symbol.")
+    }.recover {
+      case ex: Exception =>
+        println("symbol", symbol)
+        BadRequest(s"Error fetching stock details: ${ex.getMessage}")
     }
   }
 
